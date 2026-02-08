@@ -31,7 +31,8 @@ Config.JobSettings = {
     jobListingExpireTime = 600000,  -- Time before job expires from listing (10 minutes)
     playerJobExpireTime = 300000,  -- Time for player to complete active job (5 minutes)
     menuCooldown = 3000,            -- Cooldown between menu opens (3 seconds)
-    robberModel = 'g_m_y_mexgang_01' -- Model for scam robbers
+    robberModel = 'g_m_y_mexgang_01', -- Model for scam robbers
+    malwareChance = 100
 }
 Config.Rewards = {
     software = {min = 100, max = 250},
@@ -148,6 +149,10 @@ Config.ComputerParts = {
             issue = 'network',
             fixTime = 8000
         }
+        {
+            issue = 'malware',
+            fixTime = 25000  -- 25 seconds fix time
+        },
     }
 }
 Config.CustomerLocations = {
