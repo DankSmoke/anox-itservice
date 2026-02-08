@@ -89,4 +89,9 @@
     "normal_details_known": "My computer %s I'll pay $%s for the repair.",
     "normal_details_unknown": "I don't know what's wrong with my computer, but it's not working properly. Can you diagnose and fix it? I'll pay $%s for your service.",
     "windows_installation": "Windows Installation"
+    "malware": "Malware Removal",
+    "malware_msg": "My computer is infected with malware. Please remove it.",
+    "removing_malware": "Removing Malware with Anti-Malware USB...",
+    "malware_removed": "Malware successfully removed! You found a Trojan USB.",
+    "no_usb_anti": "You need an Anti-Malware USB to clean this."
 }
