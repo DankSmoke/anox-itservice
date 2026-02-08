@@ -366,6 +366,52 @@ lib.callback.register('anox-itservice:gotRobbed', function(source, jobId)
     return result
 end)
 
+lib.callback.register('anox-itservice:giveUsbAnti', function(source, jobId)
+    local Player = Framework:GetPlayer(source)
+    if not Player then return false end
+
+    local job = activeJobs[source]
+    if not job or job.id ~= jobId or job.issue ~= 'malware' then
+        return false
+    end
+
+    return Player.Functions.AddItem('usb_anti', 1)
+end)
+
+-- Consume usb_anti at computer
+lib.callback.register('anox-itservice:consumeUsbAnti', function(source, jobId)
+    local Player = Framework:GetPlayer(source)
+    if not Player then return false end
+
+    local job = activeJobs[source]
+    if not job or job.id ~= jobId or job.issue ~= 'malware' then
+        return false
+    end
+
+    local hasItem = Player.Functions.GetItemByName('usb_anti')
+    if hasItem and hasItem.amount >= 1 then
+        Player.Functions.RemoveItem('usb_anti', 1)
+        return true
+    end
+    return false
+end)
+
+-- Reward usb_trojan on successful completion
+lib.callback.register('anox-itservice:rewardUsbTrojan', function(source, jobId)
+    local Player = Framework:GetPlayer(source)
+    if not Player then return false end
+
+    local job = activeJobs[source]
+    if not job or job.id ~= jobId or job.issue ~= 'malware' then
+        return false
+    end
+
+    return Player.Functions.AddItem('usb_trojan', 1)
+end)
+
+
+
+
 AddEventHandler('playerDropped', function()
     local src = source
     if menuInUse and menuUsedBy == src then
